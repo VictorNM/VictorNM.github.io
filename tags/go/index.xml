@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>go on VictorNM</title>
+    <link>https://victornm.github.io/tags/go/</link>
+    <description>Recent content in go on VictorNM</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 May 2020 22:29:23 +0700</lastBuildDate>
+    
+	<atom:link href="https://victornm.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>The Zen of Go</title>
+      <link>https://victornm.github.io/posts/the-zen-of-go/</link>
+      <pubDate>Sun, 17 May 2020 22:29:23 +0700</pubDate>
+      
+      <guid>https://victornm.github.io/posts/the-zen-of-go/</guid>
+      <description>Nhân dịp tao blog mình đăng lại 1 bài lược dịch cách đây không lâu của mình, chi tiết các bạn có thể tìm đọc tại bài gốc &amp;ldquo;The Zen of Go&amp;rdquo; của Dave Cheney: https://dave.cheney.net/2020/02/23/the-zen-of-go
+A GOOD PACKAGE STARTS WITH A GOOD NAME Trong Go, mỗi package nên có một mục đích cụ thể, và cách tốt nhất để thể hiện mục đích đó là thông qua tên của nó - một danh từ.</description>
+    </item>
+    
+  </channel>
+</rss>
