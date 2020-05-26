@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"><title>CAP Theorem - VictorNM</title><link rel="icon" type="image/png" href=icons/myicon.png /><meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta property="og:title" content="CAP Theorem" />
+<meta property="og:description" content="Trong bài viết hôm nay, mình sẽ tìm hiều về định lý CAP thông qua việc dịch bài gốc từ website của IBM Cloud nhé: https://www.ibm.com/cloud/learn/cap-theorem" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://victornm.github.io/posts/cap-theorem/" />
+<meta property="article:published_time" content="2020-05-26T14:51:46+07:00" />
+<meta property="article:modified_time" content="2020-05-26T14:51:46+07:00" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="CAP Theorem"/>
+<meta name="twitter:description" content="Trong bài viết hôm nay, mình sẽ tìm hiều về định lý CAP thông qua việc dịch bài gốc từ website của IBM Cloud nhé: https://www.ibm.com/cloud/learn/cap-theorem"/>
+<link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,300italic,400italic|Raleway:200,300" rel="stylesheet">
+
+	<link rel="stylesheet" type="text/css" media="screen" href="https://victornm.github.io/css/normalize.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="https://victornm.github.io/css/main.css" /><link rel="stylesheet" type="text/css" href="https://victornm.github.io/css/dark.css" media="(prefers-color-scheme: dark)" />
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://victornm.github.io/js/main.js"></script>
+</head>
+
+<body>
+	<div class="container wrapper post">
+		<div class="header">
+	<h1 class="site-title"><a href="https://victornm.github.io/">VictorNM</a></h1>
+	<div class="site-description"><h2>Learning by writing</h2><nav class="nav social">
+			<ul class="flat"><a href="https://github.com/VictorNM" title="Github"><i data-feather="github"></i></a></ul>
+		</nav>
+	</div>
+
+	<nav class="nav">
+		<ul class="flat">
+			
+			<li>
+				<a href="/">Home</a>
+			</li>
+			
+			<li>
+				<a href="/posts">Posts</a>
+			</li>
+			
+			<li>
+				<a href="/tags">Tags</a>
+			</li>
+			
+		</ul>
+	</nav>
+</div>
+
+
+		<div class="post-header">
+			<h1 class="title">CAP Theorem</h1>
+			<div class="meta">Posted at &mdash; May 26, 2020</div>
+		</div>
+
+		<div class="markdown">
+			<p>Trong bài viết hôm nay, mình sẽ tìm hiều về định lý CAP thông qua việc dịch bài gốc từ website của IBM Cloud nhé: <a href="https://www.ibm.com/cloud/learn/cap-theorem">https://www.ibm.com/cloud/learn/cap-theorem</a></p>
+<h2 id="what-is-the-cap-theorem">What is the CAP theorem?</h2>
+<p>Định lý CAP phát biểu rằng: Trong một hệ thống phân tán, chỉ có 2 trong số 3 thuộc tính: <strong>consistency</strong>, <strong>availability</strong>, và <strong>partition tolerance</strong> là có thể tồn tại cùng lúc ('<strong>C</strong>', &lsquo;<strong>A</strong>&rsquo; và &lsquo;<strong>P</strong>&rsquo; trong CAP).</p>
+<p>Một hệ thống phân tán là một network lưu trữ dữ liệu trong nhiều hơn 1 node (máy tính vật lý hoặc máy ảo) tại cùng một thời điểm. Bởi vì tất cả ứng dụng cloud đều là hệ thống phân tán, nên hiểu được định lý CAP là điều cần thiết để khi thiết kế một ứng dụng cloud, bạn có thể chọn được loại hệ thống quản lý dữ liệu phù hợp nhất.</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="the-cap-in-the-cap-theorem-explained">The ‘CAP’ in the CAP theorem, explained</h2>
+<h3 id="consitency">Consitency</h3>
+<p>Consistency có nghĩa là tại cùng một thời điểm, tất cả client sẽ thấy các dữ liệu giống nhau, bất kể client đó đang kết nối tới node nào. Đề đạt được điều này, bất cứ khi nào dữ liệu được lưu xuống ở một node thì nó cần phải forwarded hoặc replicated tới tất cả các node còn lại trong hệ thống ngay lập tức, khi đó việc lưu trữ mới được xem là thành công.</p>
+<h3 id="availability">Availability</h3>
+<p>Availability nghĩa là khi bất kỳ một client nào gửi request thì đều phải nhận được response, kể cả khi 1 hoặc nhiều node bị sập. Hay nói cách khác, tất cả các node đang hoạt động trong hệ thống phân tán đều phải phản hồi lại bất kỳ request nào, không có ngoại lệ.</p>
+<h3 id="partition-tolerance">Partition tolerance</h3>
+<p>Partition là hiện tượng xảy ra khi giao tiếp trong hệ thống phân tán bị ngắt, có thể do mất kết nối hoặc kết nối bị chậm giữa 2 node với nhau. Partition tolerance nghĩa là cluster cần phải tiếp tục hoặt động bất kể có bao nhiêu node bị ngắt kết nối với nhau trong hệ thống.</p>
+<h2 id="cap-theorem-nosql-database-types">CAP theorem NoSQL database types</h2>
+<p>NoSQL database rất phù hợp cho các ứng dụng phân tán. Không giống như SQL database scale theo chiều dọc (vertically scale), các NoSQL databases được thiết kết để scale theo chiều ngang (horizontally scale) và hoạt động phân tán, chúng có thể nhanh chóng scale trên một network đang tăng trưởng bao gồm nhiều node liên kết với nhau.</p>
+<p>Ngày này, các NoSQL databases được phân loại dựa theo 2 loại thuộc tính mà chúng hỗ trợ:</p>
+<ul>
+<li>
+<p><strong>CP database:</strong> hỗ trợ consistency và partition tolerance thay cho availability. Khi mà partition xuất hiện giữa bất kỳ 2 nodes nào, hệ thống phải tắt node không consitent đi cho tới khi giải quyết được partition.</p>
+</li>
+<li>
+<p><strong>AP database:</strong> hỗ trợ availability và partition tolerance thay cho consitency. Khi partition xuất hiện giữa 2 node, cả 2 node đều available, tuy nhiên 1 node sẽ chữa dữ liệu cũ hơn so với node kìa. Khi partition được giải quyết, các AP datatabases sẽ đồng bộ dự liệu giữa các node lại.</p>
+</li>
+<li>
+<p><strong>CA database:</strong> hỗ trợ consitency và availability. Nó không thể làm được điều này nếu partition xảy ra trong hệ thống, vì vậy nó không đảm bảo partition tolerance.</p>
+</li>
+</ul>
+<p>CA database được liệt kê cuối cùng vì 1 lý do: không thể tránh khỏi tình trạng partition trong một hệ thống phân tán. Vì vậy, chúng ta có thể thảo luận về CA database trên lý thuyết, nhưng trong thực tế, CA distribute database không thể tồn tại. Tuy nhiên, điều đó không có nghĩa là bạn không thể có một CA database cho ứng dụng phân tán của mình nếu cần. Nhiều cơ sở dữ liệu quan hệ (relational databases), như PostgreSQL, hỗ trợ consistency và availability và có thể được deployed trên nhiều node sử dụng replication.</p>
+		</div>
+
+		<div class="post-tags">
+			
+				
+			
+		</div>
+		</div>
+	<div class="footer wrapper">
+	<nav class="nav">
+		<div> <a href="https://github.com/vividvilla/ezhil">Ezhil theme</a> | Built with <a href="https://gohugo.io">Hugo</a></div>
+	</nav>
+</div>
+
+
+
+<script>feather.replace()</script>
+</body>
+</html>
